@@ -1,0 +1,78 @@
+﻿@model CrudMVC.Models.Class1 
+@{
+    ViewBag.Title = "InsertMobile";
+}
+
+<h2>InsertMobile</h2>
+
+<table>
+    <tr>
+        <td>
+            @Html.ActionLink("Show All Mobile List", "ShowAllMobileDetails")
+        </td>
+    </tr>
+</table>
+@using (Html.BeginForm())
+{
+    <table width="100%">
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.MobileName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(a => a.MobileName)
+                @Html.ValidationMessageFor(a => a.MobileName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.MobileIMEno)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(a => a.MobileIMEno)
+                @Html.ValidationMessageFor(a => a.MobileIMEno)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.mobileManufacured)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(a => a.mobileManufacured)
+                @Html.ValidationMessageFor(a => a.mobileManufacured)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.mobileprice)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(a => a.mobileprice)
+                @Html.ValidationMessageFor(a => a.mobileprice)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input id="Submit1" type="submit" value="submit" />
+            </td>
+        </tr>
+    </table>
+}  
+@{
+    if (ViewData["result"] != "" && ViewData["result"] != null)
+    {
+        ViewData["result"] = null;
+        <script type="text/javascript" language="javascript">
+
+        alert("Data saved Successfully");
+        </script>
+    }
+}  

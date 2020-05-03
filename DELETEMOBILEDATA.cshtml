@@ -1,0 +1,60 @@
+﻿
+@model CrudMVC.Models.Class1 
+@{
+    ViewBag.Title = "DELETEMOBILEDATA";
+}
+<h2>
+    DELETEMOBILEDATA
+</h2>
+<table>
+    <tr>
+        <td>
+            @Html.ActionLink("Add New Mobiles", "InsertMobile")
+        </td>
+        <td>
+            @Html.ActionLink("Show All Mobile List", "ShowAllMobileDetails")
+        </td>
+    </tr>
+</table>
+<br />
+@using (Html.BeginForm())
+{
+    <table width="100%">
+        <tr>
+            <td colspan="2">
+                @Html.HiddenFor(a => a.MobileID)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                MobileName :-
+                @Html.DisplayFor(a => a.MobileName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                MobileIMEI Number:-
+                @Html.DisplayFor(a => a.MobileIMEno)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mobile Manufacured :-
+                @Html.DisplayFor(a => a.mobileManufacured)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mobileprice :-
+                @Html.DisplayFor(a => a.mobileprice)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input id="Submit1" onclick="return confirm('Are you sure you want delete');" type="submit"
+                       value="Delete" />
+            </td>
+        </tr>
+    </table>
+}  
+

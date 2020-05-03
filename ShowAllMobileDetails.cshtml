@@ -1,0 +1,75 @@
+﻿
+
+@model CrudMVC.Models.Class1 
+@{
+    ViewBag.Title = "ShowAllMobileDetails";
+}
+<h2>
+    ShowAllMobileDetails
+</h2>
+<table>
+    <tr>
+        <td>
+            @Html.ActionLink("Add New Mobiles", "InsertMobile")
+        </td>
+    </tr>
+</table>
+@{
+    for (int i = 0; i < Model.StoreAllData.Tables[0].Rows.Count; i++)
+    {
+        var MobileID = Model.StoreAllData.Tables[0].Rows[i]["MobileID"].ToString();
+        var MobileName = Model.StoreAllData.Tables[0].Rows[i]["MobileName"].ToString();
+        var MobileIMEno = Model.StoreAllData.Tables[0].Rows[i]["MobileIMEno"].ToString();
+        var Mobileprice = Model.StoreAllData.Tables[0].Rows[i]["mobileprice"].ToString();
+        var MobileManufacured = Model.StoreAllData.Tables[0].Rows[i]["mobileManufacured"].ToString();
+        <table width="100%">
+            <tr>
+                <td>
+                    MobileID
+                </td>
+                <td>
+                    MobileName
+                </td>
+                <td>
+                    Mobile IMEI No
+                </td>
+                <td>
+                    Mobileprice
+                </td>
+                <td>
+                    Mobile Manufactured
+                </td>
+                <td>
+                    EDIT
+                </td>
+                <td>
+                    DELETE
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @MobileID
+                </td>
+                <td>
+                    @MobileName
+                </td>
+                <td>
+                    @MobileIMEno
+                </td>
+                <td>
+                    @Mobileprice
+                </td>
+                <td>
+                    @MobileManufacured
+                </td>
+                <td>
+                    @Html.ActionLink("EDIT", "EDITMOBILEDATA", new { id = Model.StoreAllData.Tables[0].Rows[i]["MobileID"].ToString() })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "DELETEMOBILEDATA", new { id = Model.StoreAllData.Tables[0].Rows[i]["MobileID"].ToString() })
+                </td>
+            </tr>
+            
+        </table>
+    }
+}  

@@ -1,0 +1,88 @@
+﻿
+
+@model CrudMVC.Models.Class1 
+@{
+    ViewBag.Title = "EDITMOBILEDATA";
+}
+<h2>
+    EDITMOBILEDATA
+</h2>
+<table>
+    <tr>
+        <td>
+            @Html.ActionLink("Show All Mobile List", "ShowAllMobileDetails")
+        </td>
+    </tr>
+</table>
+<br />
+@using (Html.BeginForm())
+{
+    <table width="100%">
+        <tr>
+            <td colspan="2">
+                @Html.HiddenFor(a => a.MobileID)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.MobileName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(a => a.MobileName)
+                @Html.ValidationMessageFor(a => a.MobileName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.MobileIMEno)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(a => a.MobileIMEno)
+                @Html.ValidationMessageFor(a => a.MobileIMEno)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.mobileManufacured)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(a => a.mobileManufacured)
+                @Html.ValidationMessageFor(a => a.mobileManufacured)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.mobileprice)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(a => a.mobileprice)
+                @Html.ValidationMessageFor(a => a.mobileprice)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input id="Submit1" type="submit" value="Update" />
+            </td>
+        </tr>
+    </table>
+}
+@{
+    if (ViewData["resultUpdate"] != "" && ViewData["resultUpdate"] != null)
+    {
+        ViewData["resultUpdate"] = null;
+        <script type="text/javascript" language="javascript">
+
+        alert("Data Updated Successfully");
+        </script>
+    }
+}
+  
+
